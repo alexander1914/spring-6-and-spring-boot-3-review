@@ -14,7 +14,6 @@ public class Traveler {
             this.car = new Car();
             this.bike = new Bike();
          */
-
         /// After
         this.vehicle = vehicle;
     }
