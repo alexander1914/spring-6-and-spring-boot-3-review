@@ -2,13 +2,17 @@ package com.github.alexander.spring.framework.config;
 
 import com.github.alexander.spring.framework.core.*;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /// @Configuration to configure one or more Spring beans with @Bean annotation
-@Configuration
-public class AppConfig {
+/// @ComponentScan is annotation to specify the package name.
 
-    @Bean
+@Configuration
+@ComponentScan(basePackages = "com.github.alexander.spring.framework")
+public class AppConfig {
+    /// Beans
+    /*@Bean
     public Vehicle car(){
         return new Car();
     }
@@ -27,5 +31,5 @@ public class AppConfig {
     public Traveler traveler(){
         /// Dependency Injection
         return new Traveler(cycle());
-    }
+    }*/
 }
