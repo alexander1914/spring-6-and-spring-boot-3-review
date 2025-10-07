@@ -2,14 +2,20 @@ package github.alexander1914.springboot.rest.api.controller;
 
 import github.alexander1914.springboot.rest.api.bens.Student;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/// @RestController: is an annotation that s a specialized version of the controller.
+/// It includes the @Controller and @ResponseBody annotations, and as a result, simplifies the controller implementation.
 @RestController
 public class StudentController {
 
+    /// @GetMapping is an annotation that used to map HTTP GET requests to a specific handler method in a controller,
+    /// acting as a shortcut for @RequestMapping(method = RequestMethod. GET)
     @GetMapping("student")
     public Student getStudent(){
         Student student = new Student(
@@ -27,8 +33,25 @@ public class StudentController {
         students.add(new Student(1, "Alexander", "Oliveira"));
         students.add(new Student(2, "Vivian", "Less"));
         students.add(new Student(3, "Bruna", "Carlos"));
-        students.add(new Student(2, "Ericka", "Alvar's"));
+        students.add(new Student(4, "Ericka", "Alvar's"));
 
         return students;
+    }
+
+    /// @PathVariable is an annotation that extracts values from URI templates in HTTP requests.
+    /// It enables dynamic path segments in URLs to be mapped to method parameters in controller methods
+    /// {id} - URI template variable
+    @GetMapping("students/{id}")
+    public Student studentPathVariable(@PathVariable("id") int studentId){
+        return new Student(studentId, "Alexander", "Oliveira");
+    }
+
+    ///@RequestParam is an annotation that enables Spring to extract input data that may be passed as a query,
+    /// form data or any arbitrary custom data.
+    @GetMapping("students/query")
+    public Student studentRequestParam(@RequestParam int id,
+                                       @RequestParam String firstName,
+                                       @RequestParam String lastName){
+        return new Student(id, firstName, lastName);
     }
 }
