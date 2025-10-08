@@ -1,10 +1,8 @@
 package github.alexander1914.springboot.rest.api.controller;
 
 import github.alexander1914.springboot.rest.api.bens.Student;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,5 +51,32 @@ public class StudentController {
                                        @RequestParam String firstName,
                                        @RequestParam String lastName){
         return new Student(id, firstName, lastName);
+    }
+
+    /// @PostMapping in an annotation that Spring annotation that is used to map HTTP POST,
+    ///  requests onto specific handler methods.
+    /// It is a shortcut for @RequestMapping annotation with method = RequestMethod. POST attribute
+    /// @RequestBody is an annotation that typically used with GET methods to write the response body content.
+    /// @ResponseStatus is an annotation that control HTTP responses in Spring applications.
+    @PostMapping("students/create")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Student postRequestCreate(@RequestBody Student student){
+        System.out.println(student.getId());
+        System.out.println(student.getFirstName());
+        System.out.println(student.getLastName());
+
+        return student;
+    }
+
+    /// @PutMapping is an annotation that Spring annotation that is used to map,
+    ///  HTTP PUT requests onto specific handler methods.
+    /// It is a shortcut for @RequestMapping annotation with (method = RequestMethod. PUT) attribute.
+    @PutMapping("students/{id}/update")
+    public Student putRequestUpdate(@RequestBody Student student, @PathVariable("id") int studentId){
+        System.out.println(student.getId());
+        System.out.println(student.getFirstName());
+        System.out.println(student.getLastName());
+
+        return student;
     }
 }
