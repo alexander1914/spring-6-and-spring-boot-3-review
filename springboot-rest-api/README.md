@@ -40,4 +40,7 @@ It is a shortcut for **@RequestMapping** annotation with (method = RequestMethod
 **@ResponseStatus:** is an annotation that control HTTP responses in Spring applications.
 
 **@PutMapping:** is an annotation that Spring annotation that is used to map HTTP PUT requests onto specific handler methods. 
-It is a shortcut for **@RequestMapping** annotation (with method = RequestMethod. **PUT**) attribute. 
+It is a shortcut for **@RequestMapping** annotation (with method = RequestMethod. **PUT**) attribute.
+
+**@DeleteMapping:** is an annotation that  is used to map HTTP DELETE requests onto specific handler methods.
+It is a shortcut for **@RequestMapping** annotation with (method = RequestMethod. **DELETE**) attribute.

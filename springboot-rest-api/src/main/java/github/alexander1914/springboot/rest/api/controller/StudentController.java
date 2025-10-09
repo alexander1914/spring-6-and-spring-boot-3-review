@@ -79,4 +79,12 @@ public class StudentController {
 
         return student;
     }
+
+    /// @DeleteMapping is an annotation that  is used to map HTTP DELETE requests onto specific handler methods.
+    /// It is a shortcut for @RequestMapping annotation with (method = RequestMethod. DELETE) attribute.
+    @DeleteMapping("students/{id}/delete")
+    public String deleteRequestDelete(@PathVariable("id") int studentId){
+        System.out.println(studentId);
+        return "Student deleted successfully";
+    }
 }
