@@ -21,3 +21,16 @@ The following guides illustrate how to use some features concretely:
 *Create new user*
 
 *Create database*
+
+# Annotation JPA
+**@Entity:** is an annotation that class can indicate that it is the entity,
+and it can represent the tables in the relational database.
+
+**@Id:** is an annotation that annotation in JPA marks a field as the primary key of an entity.
+It uniquely identifies each row in the corresponding database table and is mandatory for every entity.
+
+**@Table:** is an annotation that in JPA is used to define the database table mapping for an entity.
+
+**@GeneratedValue:** is an annotation that defines how primary key values are automatically generated.
+
+**@Column:** is an annotation that is used to define column-specific attributes for an entity field in the database.

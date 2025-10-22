@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringjpaRestfullWebservicesApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringjpaRestfullWebservicesApplication.class, args);
+
+        SpringApplication.run(SpringjpaRestfullWebservicesApplication.class, args);
+
 	}
 
 }
