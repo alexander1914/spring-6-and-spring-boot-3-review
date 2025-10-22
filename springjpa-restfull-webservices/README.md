@@ -34,3 +34,15 @@ It uniquely identifies each row in the corresponding database table and is manda
 **@GeneratedValue:** is an annotation that defines how primary key values are automatically generated.
 
 **@Column:** is an annotation that is used to define column-specific attributes for an entity field in the database.
+
+# Annotation Lombok
+
+**@Getter:**
+
+**@Setter:**
+
+**@NoArgsConstructor:**
+
+**@AllArgsConstructor:**
+
+
