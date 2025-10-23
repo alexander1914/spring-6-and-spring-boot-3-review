@@ -37,12 +37,20 @@ It uniquely identifies each row in the corresponding database table and is manda
 
 # Annotation Lombok
 
-**@Getter:**
+**@Getter:** is an annotation that generates a getter method with access type as public which simply returns,
+the field and with name getName() if the field name is "Name".
 
-**@Setter:**
+**@Setter:** is an annotation that generates a setter method with access type as public which returns void 
+and takes a single parameter to assign the value to the field.
 
-**@NoArgsConstructor:**
+**@NoArgsConstructor:** is an annotation that generate a constructor with no arguments. 
+It has an empty body and does nothing. 
+It is generally used in combination with some other parameterized constructor in use. 
+It is required when you want to generate an object of the class by passing no arguments in the constructor.
 
-**@AllArgsConstructor:**
+**@AllArgsConstructor:** is an annotation that generate a parameterized constructor which accepts, 
+a single parameter for each field and initializes them using it. 
+It is required when you want to generate an object of the class, 
+by passing the initial values of the fields in the constructor. 
 
 
