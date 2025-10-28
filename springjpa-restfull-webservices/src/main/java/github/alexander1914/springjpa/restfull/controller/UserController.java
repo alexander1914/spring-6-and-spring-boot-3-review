@@ -1,5 +1,6 @@
 package github.alexander1914.springjpa.restfull.controller;
 
+import github.alexander1914.springjpa.restfull.dto.UserDTO;
 import github.alexander1914.springjpa.restfull.entity.User;
 import github.alexander1914.springjpa.restfull.service.UserService;
 import lombok.AllArgsConstructor;
@@ -28,8 +29,8 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user){
-        User savedUser = userService.createUser(user);
+    public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTO){
+        UserDTO savedUser = userService.createUser(userDTO);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
 

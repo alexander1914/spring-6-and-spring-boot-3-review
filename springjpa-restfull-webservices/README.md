@@ -53,4 +53,7 @@ a single parameter for each field and initializes them using it.
 It is required when you want to generate an object of the class, 
 by passing the initial values of the fields in the constructor. 
 
+# DTO Data Transfer Object 
+**Data Transfer Object (DTO)** is an object that carries data between processes. 
+When you're working with a remote interface, each call is expensive as a result, you need to reduce the number of calls.
 
