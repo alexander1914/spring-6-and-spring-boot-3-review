@@ -2,6 +2,7 @@ package github.alexander1914.springjpa.restfull.service.impl;
 
 import github.alexander1914.springjpa.restfull.dto.UserDTO;
 import github.alexander1914.springjpa.restfull.entity.User;
+import github.alexander1914.springjpa.restfull.mapper.UserMapper;
 import github.alexander1914.springjpa.restfull.repository.UserRepository;
 import github.alexander1914.springjpa.restfull.service.UserService;
 import lombok.AllArgsConstructor;
@@ -29,22 +30,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO createUser(UserDTO userDTO) {
         /// Convert UserDTO into User JPA Entity
-        User user = new User(
-                userDTO.getId(),
-                userDTO.getFirstName(),
-                userDTO.getLastName(),
-                userDTO.getEmail()
-        );
+        User user = UserMapper.mapToUser(userDTO);
 
         User savedUser = userRepository.save(user);
 
         /// Convert User JPA entity to UserDTO
-        UserDTO savedUserDto = new UserDTO(
-                savedUser.getId(),
-                savedUser.getFirstName(),
-                savedUser.getLastName(),
-                savedUser.getEmail()
-        );
+        UserDTO savedUserDto = UserMapper.mapToUserDTO(savedUser);
 
         return savedUserDto;
     }
