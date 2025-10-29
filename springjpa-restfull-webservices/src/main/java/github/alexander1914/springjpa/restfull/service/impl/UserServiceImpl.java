@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -17,14 +18,18 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public User getUserById(Long userId) {
+    public UserDTO getUserById(Long userId) {
         Optional<User> optionalUser = userRepository.findById(userId);
-        return optionalUser.get();
+        User user = optionalUser.get();
+        /// Convert UserDTO into User JPA Entity
+        return UserMapper.mapToUserDTO(user);
     }
 
     @Override
-    public List<User> getAllUser() {
-        return userRepository.findAll();
+    public List<UserDTO> getAllUser() {
+        List<User> users = userRepository.findAll();
+        return users.stream().map(UserMapper::mapToUserDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -41,16 +46,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updateUser(User user) {
-        User existingUser = userRepository.findById(user.getId()).get();
+    public UserDTO updateUser(UserDTO userDTO) {
+        User existingUser = userRepository.findById(userDTO.getId()).get();
 
-        existingUser.setFirstName(user.getFirstName());
-        existingUser.setLastName(user.getLastName());
-        existingUser.setEmail(user.getEmail());
+        existingUser.setFirstName(userDTO.getFirstName());
+        existingUser.setLastName(userDTO.getLastName());
+        existingUser.setEmail(userDTO.getEmail());
 
         User updatedUser = userRepository.save(existingUser);
 
-        return updatedUser;
+        return UserMapper.mapToUserDTO(updatedUser);
     }
 
     @Override
