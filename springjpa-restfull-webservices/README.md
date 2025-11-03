@@ -20,9 +20,7 @@ The following guides illustrate how to use some features concretely:
 
 # Database Oracle on Docker 
 
-*Create new user*
-
-*Create database*
+.....
 
 # Annotation JPA
 **@Entity:** is an annotation that class can indicate that it is the entity,
