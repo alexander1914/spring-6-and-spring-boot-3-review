@@ -20,9 +20,18 @@ The following guides illustrate how to use some features concretely:
 
 # Database Oracle on Docker 
 
-*Create new user*
+*Create new user:* to create new user this container on docker
 
-*Create database*
+```
+docker run --name oracle \
+-d \
+-p 51521:1521 \
+-p 55500:5500 \
+-e ORACLE_PWD=SUA_SENHA \
+-e ORACLE_CHARACTERSET=AL32UTF8 \
+oracle/database:21.3.0-xe
+
+```
 
 # Annotation JPA
 **@Entity:** is an annotation that class can indicate that it is the entity,
