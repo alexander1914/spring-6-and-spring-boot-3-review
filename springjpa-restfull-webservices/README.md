@@ -68,3 +68,11 @@ by passing the initial values of the fields in the constructor.
 **Data Transfer Object (DTO)** is an object that carries data between processes. 
 When you're working with a remote interface, each call is expensive as a result, you need to reduce the number of calls.
 
+# Exception Handling
+is a mechanism to handle runtime errors, allowing the normal flow of a program to continue. 
+Exceptions are events that occur during program execution that disrupt the normal flow of instructions.
+
+**@ResponseStatus:** is an annotation in Spring is the powerful tool used in the building RESTFull web services. 
+It is allowed developers to control HTTP (Hypertext Transfer Protocol) status code returned by the application's, 
+endpoints or when specific exceptions are thrown.
+

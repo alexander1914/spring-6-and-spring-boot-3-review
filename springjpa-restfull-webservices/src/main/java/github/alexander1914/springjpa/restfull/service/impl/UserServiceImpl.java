@@ -2,6 +2,7 @@ package github.alexander1914.springjpa.restfull.service.impl;
 
 import github.alexander1914.springjpa.restfull.dto.UserDTO;
 import github.alexander1914.springjpa.restfull.entity.User;
+import github.alexander1914.springjpa.restfull.exception.ResourceNotFoundException;
 import github.alexander1914.springjpa.restfull.mapper.UserMapper;
 import github.alexander1914.springjpa.restfull.repository.UserRepository;
 import github.alexander1914.springjpa.restfull.service.UserService;
@@ -21,8 +22,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO getUserById(Long userId) {
-        Optional<User> optionalUser = userRepository.findById(userId);
-        User user = optionalUser.get();
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
         /// Convert UserDTO into User JPA Entity
         //return UserMapper.mapToUserDTO(user);
         /// Model Mapper
@@ -57,7 +58,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO updateUser(UserDTO userDTO) {
-        User existingUser = userRepository.findById(userDTO.getId()).get();
+        User existingUser = userRepository.findById(userDTO.getId())
+                        .orElseThrow(() -> new ResourceNotFoundException("User", "id", userDTO.getId()));
 
         existingUser.setFirstName(userDTO.getFirstName());
         existingUser.setLastName(userDTO.getLastName());
@@ -73,6 +75,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUser(Long userId) {
-        userRepository.deleteById(userId);
+        User existingUser = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
+
+        userRepository.delete(existingUser);
     }
 }
