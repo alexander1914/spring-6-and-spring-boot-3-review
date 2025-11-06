@@ -24,8 +24,10 @@ public class UserServiceImpl implements UserService {
     public UserDTO getUserById(Long userId) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
+
         /// Convert UserDTO into User JPA Entity
         //return UserMapper.mapToUserDTO(user);
+
         /// Model Mapper
         return modelMapper.map(user, UserDTO.class);
     }
@@ -34,6 +36,7 @@ public class UserServiceImpl implements UserService {
     public List<UserDTO> getAllUser() {
         List<User> users = userRepository.findAll();
         //return users.stream().map(UserMapper::mapToUserDTO).collect(Collectors.toList());
+
         /// Model Mapper
         return users.stream().map((user) -> modelMapper.map(user, UserDTO.class))
                 .collect(Collectors.toList());
@@ -43,6 +46,7 @@ public class UserServiceImpl implements UserService {
     public UserDTO createUser(UserDTO userDTO) {
         /// Convert UserDTO into User JPA Entity
         //User user = UserMapper.mapToUser(userDTO);
+
         /// Model Mapper
         User user = modelMapper.map(userDTO, User.class);
 
@@ -50,6 +54,7 @@ public class UserServiceImpl implements UserService {
 
         /// Convert User JPA entity to UserDTO
         //UserDTO savedUserDto = UserMapper.mapToUserDTO(savedUser);
+
         /// Model Mapper
         UserDTO savedUserDto = modelMapper.map(savedUser, UserDTO.class);
 
@@ -69,6 +74,7 @@ public class UserServiceImpl implements UserService {
 
         /// Convert User JPA entity to UserDTO
         //return UserMapper.mapToUserDTO(updatedUser);
+
         /// Model Mapper
         return modelMapper.map(updatedUser, UserDTO.class);
     }

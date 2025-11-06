@@ -1,12 +1,16 @@
 package github.alexander1914.springjpa.restfull.controller;
 
 import github.alexander1914.springjpa.restfull.dto.UserDTO;
+import github.alexander1914.springjpa.restfull.exception.ErrorDetails;
+import github.alexander1914.springjpa.restfull.exception.ResourceNotFoundException;
 import github.alexander1914.springjpa.restfull.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.WebRequest;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController

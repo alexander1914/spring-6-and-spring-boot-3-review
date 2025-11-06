@@ -76,3 +76,9 @@ Exceptions are events that occur during program execution that disrupt the norma
 It is allowed developers to control HTTP (Hypertext Transfer Protocol) status code returned by the application's, 
 endpoints or when specific exceptions are thrown.
 
+**ExceptionHandler:** is an annotation that helps deal with errors and exceptions present in APIs, 
+delivering a robust enterprise application.
+
+**@ControllerAdvice:** is an annotation that introduced in Spring 3.2 that enables global exception handling, 
+across your entire Spring MVC application. 
+It acts like Aspect-Oriented Programming (AOP), intercepting exceptions thrown by controllers.

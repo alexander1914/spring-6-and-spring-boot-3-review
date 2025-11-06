@@ -58,7 +58,7 @@
         <dependency>
             <groupId>org.modelmapper</groupId>
             <artifactId>modelmapper</artifactId>
-            <version>3.2.4</version>
+            <version>3.2.5</version>
         </dependency>
 	</dependencies>
 
@@ -80,6 +80,9 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+                    <jvmArguments>
+                        --add-opens java.base/java.lang=ALL-UNNAMED
+                    </jvmArguments>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
