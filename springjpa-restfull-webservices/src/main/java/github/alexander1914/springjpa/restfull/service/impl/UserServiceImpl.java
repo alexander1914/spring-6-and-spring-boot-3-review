@@ -2,6 +2,7 @@ package github.alexander1914.springjpa.restfull.service.impl;
 
 import github.alexander1914.springjpa.restfull.dto.UserDTO;
 import github.alexander1914.springjpa.restfull.entity.User;
+import github.alexander1914.springjpa.restfull.exception.EmailAlreadyExistsException;
 import github.alexander1914.springjpa.restfull.exception.ResourceNotFoundException;
 import github.alexander1914.springjpa.restfull.mapper.UserMapper;
 import github.alexander1914.springjpa.restfull.repository.UserRepository;
@@ -46,6 +47,12 @@ public class UserServiceImpl implements UserService {
     public UserDTO createUser(UserDTO userDTO) {
         /// Convert UserDTO into User JPA Entity
         //User user = UserMapper.mapToUser(userDTO);
+
+        Optional<User> optionalUser = userRepository.findByEmail(userDTO.getEmail());
+
+        if(optionalUser.isPresent()){
+            throw new EmailAlreadyExistsException("Email already exist for user now !");
+        }
 
         /// Model Mapper
         User user = modelMapper.map(userDTO, User.class);
