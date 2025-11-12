@@ -82,3 +82,17 @@ delivering a robust enterprise application.
 **@ControllerAdvice:** is an annotation that introduced in Spring 3.2 that enables global exception handling, 
 across your entire Spring MVC application. 
 It acts like Aspect-Oriented Programming (AOP), intercepting exceptions thrown by controllers.
+
+# Validations Annotations
+Validating user input is an important part of building secure and reliable applications. 
+Spring Boot makes this simple by integrating with Hibernate Validator, 
+the reference implementation of JSR 380 (Bean Validation API). 
+Using it, developers can enforce validation rules on data models with simple annotations like 
+@NotNull, @Size, @Email, etc.
+
+**@NotEmpty:** is an annotation that a field is not null and also not empty, meaning
+it must contain at least one element (for collections) or at least one character (for strings).
+
+**@Email:** is annotation that Email can be validated with this.
+
+**@Valid:** is annotation that triggers validation on the Employee object.
