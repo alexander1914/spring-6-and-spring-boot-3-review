@@ -96,3 +96,9 @@ it must contain at least one element (for collections) or at least one character
 **@Email:** is annotation that Email can be validated with this.
 
 **@Valid:** is annotation that triggers validation on the Employee object.
+
+# Spring Actuator
+
+is a subproject of Spring Boot. 
+It adds several production grade services to your application with little effort on your part. 
+In this guide, you will build an application and then see how to add these services.
