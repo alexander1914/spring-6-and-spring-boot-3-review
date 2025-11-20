@@ -113,7 +113,8 @@ Displays a complete list of all the Spring beans in your application.
 Exposes available caches.
 
 **conditions:**
-Shows the conditions that were evaluated on configuration and auto-configuration classes and the reasons why they did or did not match.
+Shows the conditions that were evaluated on configuration and 
+auto-configuration classes and the reasons why they did or did not match.
 
 **configprops:**
 Displays a collated list of all @ConfigurationProperties. Subject to sanitization.
@@ -128,7 +129,8 @@ Shows any Flyway database migrations that have been applied. Requires one or mor
 Shows application health information.
 
 **httpexchanges:**
-Displays HTTP exchange information (by default, the last 100 HTTP request-response exchanges). Requires an HttpExchangeRepository bean.
+Displays HTTP exchange information (by default, the last 100 HTTP request-response exchanges). 
+Requires an HttpExchangeRepository bean.
 
 **info:**
 Displays arbitrary application info.
@@ -155,23 +157,39 @@ Shows information about Quartz Scheduler jobs. Subject to sanitization.
 Displays the scheduled tasks in your application.
 
 **sessions:**
-Allows retrieval and deletion of user sessions from a Spring Session-backed session store. Requires a servlet-based web application that uses Spring Session.
+Allows retrieval and deletion of user sessions from a Spring Session-backed session store. 
+Requires a servlet-based web application that uses Spring Session.
 
 **shutdown:**
-Lets the application be gracefully shutdown. Only works when using jar packaging. Disabled by default.
+Lets the application be gracefully shutdown. Only works when using jar packaging. 
+Disabled by default.
 
 **startup:**
-Shows the startup steps data collected by the ApplicationStartup. Requires the SpringApplication to be configured with a BufferingApplicationStartup.
+Shows the startup steps data collected by the ApplicationStartup. 
+Requires the SpringApplication to be configured with a BufferingApplicationStartup.
 
 **threaddump:**
 Performs a thread dump.
-If your application is a web application (Spring MVC, Spring WebFlux, or Jersey), you can use the following additional endpoints:
+If your application is a web application (Spring MVC, Spring WebFlux, or Jersey), 
+you can use the following additional endpoints:
 
 **heapdump:**
-Returns a heap dump file. On a HotSpot JVM, an HPROF-format file is returned. On an OpenJ9 JVM, a PHD-format file is returned.
+Returns a heap dump file. On a HotSpot JVM, an HPROF-format file is returned. 
+On an OpenJ9 JVM, a PHD-format file is returned.
 
 **logfile:**
-Returns the contents of the logfile (if the logging.file.name or the logging.file.path property has been set). Supports the use of the HTTP Range header to retrieve part of the log file’s content.
+Returns the contents of the logfile (if the logging.file.name or the logging.file.path property has been set). 
+Supports the use of the HTTP Range header to retrieve part of the log file’s content.
 
 **prometheus:**
-Exposes metrics in a format that can be scraped by a Prometheus server. Requires a dependency on micrometer-registry-prometheus.
+Exposes metrics in a format that can be scraped by a Prometheus server. 
+Requires a dependency on micrometer-registry-prometheus.
+
+
+# SpringDoc
+ava library helps to automate the generation of API documentation using spring boot projects. 
+springdoc-openapi works by examining an application at runtime to infer API semantics based on spring configurations, 
+class structure and various annotations.
+
+http://localhost:8080/swagger-ui/index.html#/
+
