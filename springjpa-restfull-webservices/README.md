@@ -190,6 +190,21 @@ Requires a dependency on micrometer-registry-prometheus.
 ava library helps to automate the generation of API documentation using spring boot projects. 
 springdoc-openapi works by examining an application at runtime to infer API semantics based on spring configurations, 
 class structure and various annotations.
-
 http://localhost:8080/swagger-ui/index.html#/
+
+# Swagger Annotations
+
+**@OpenAPIDefinition:** is annotation that configures global settings for the OpenAPI documentation,
+such as API information, server, and security configurations.
+
+**@Tag:** is annotation that allows the grouping of operations in Swagger UI by a specific category or tag,
+helping organize API documentation into meaningful sections.
+
+**@Operation:** is annotation that used to provide metadata for a single API endpoint, 
+most commonly within Swagger/OpenAPI documentation generation.
+
+**@ApiResponse:** is annotation that to describe the concrete possible response of an operation.
+
+**@Schema:** is annotation that it can be mainly used to define the schema of the data model or
+object in the API providing the metadata such as type, format, and constraints.
 
